@@ -1,30 +1,39 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <Nav />
+  <Main />
 </template>
 
+<script>
+import Nav from '@/components/Nav.vue';
+import Main from '@/components/Main.vue';
+
+export default {
+  name: 'App',
+  components: {
+    Nav,
+    Main,
+  },
+};
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
   }
-}
+
+  #app {
+    height: 100%;
+    width: 100%;
+  }
+
 </style>
