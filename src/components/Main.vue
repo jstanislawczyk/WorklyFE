@@ -14,7 +14,7 @@ export default {
 <style scoped lang="scss">
 
   .main {
-    height: calc(100% - 70px);
+    height: calc(100% - 60px);
   }
 
 </style>
