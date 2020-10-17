@@ -1,7 +1,7 @@
 <template>
   <nav class="nav">
     <div>
-      <router-link to="/" class="nav__link">
+      <router-link to="/">
         <img
           class="nav__logo"
           src="@/assets/workly-logo.png"
@@ -32,13 +32,13 @@ export default {
     box-sizing: border-box;
     width: 100%;
     height: 60px;
-    padding: 0 10px;
-    background: $violet;
-    background: linear-gradient(90deg, $violet 45%, #FF0041 100%);
+    padding: 0;
+    background: $blue-violet-gradient;
     color: #FFF;
 
     &__logo {
       width: 75px;
+      padding: 0 10px;
     }
 
     &__links {
@@ -52,16 +52,28 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
       height: 100%;
       margin: auto;
       padding: 0 15px;
       text-decoration: none;
       font-weight: 500;
       color: #FFF;
-      transition: .3s;
 
-      &:hover {
-        color: #FFE0E0;
+      &::after {
+        display: block;
+        content: '';
+        width: 0;
+        height: 1px;
+        background: #FFF;
+        position: absolute;
+        bottom: 17px;
+        left: 15px;
+        transition: .4s;
+      }
+
+      &:hover::after {
+        width: calc(100% - 30px);
       }
     }
   }

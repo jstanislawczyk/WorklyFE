@@ -75,6 +75,7 @@ export default {
 
 <style scoped lang="scss">
   @import "../scss/colors.scss";
+  @import "../scss/mixins/common.scss";
 
   .home {
     height: 100%;
@@ -99,24 +100,9 @@ export default {
     }
 
     &__link {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 50px;
-      height: 40px;
-      width: 150px;
-      background: $violet;
-      border: 2px solid $violet;
-      border-radius: 3px;
-      text-decoration: none;
-      font-size: 18px;
-      color: #FFF;
-      transition: .3s;
+      @include button();
 
-      &:hover {
-        background: #FFF;
-        color: $violet;
-      }
+      margin-top: 50px;
     }
   }
 
