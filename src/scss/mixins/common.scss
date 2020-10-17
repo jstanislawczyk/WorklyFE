@@ -1,0 +1,22 @@
+@import "../colors.scss";
+
+@mixin button($width: 150px, $height: 40px, $color: $violet) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $height;
+  width: $width;
+  background: $color;
+  border: 2px solid $color;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #FFF;
+  transition: .3s;
+
+  &:hover {
+    background: #FFF;
+    cursor: pointer;
+    color: $color;
+  }
+}
