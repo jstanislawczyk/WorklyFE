@@ -100,7 +100,7 @@ export default {
     }
 
     &__link {
-      @include button();
+      @include button;
 
       margin-top: 50px;
     }
