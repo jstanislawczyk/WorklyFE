@@ -30,9 +30,11 @@
 </template>
 
 <script>
+import formValidation from '@/mixins/FormValidation';
 
 export default {
   name: 'Login',
+  mixins: [formValidation],
   data() {
     return {
       user: {
@@ -43,14 +45,13 @@ export default {
   },
   methods: {
     loginUser() {
-      console.log(this.user);
+      console.log('REGISTER');
     },
   },
 };
 </script>
 
 <style scoped lang="scss">
-
   @import "../scss/colors.scss";
   @import "../scss/mixins/form.scss";
 

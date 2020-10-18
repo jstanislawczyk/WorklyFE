@@ -42,15 +42,27 @@
         >
       </label>
 
+      <ul class="register__error-list">
+        <li
+          v-for="(error, index) in errors"
+          v-bind:key="index"
+          class="register__error"
+        >
+          {{ error }}
+        </li>
+      </ul>
+
       <button class="register__submit" type="submit">Register</button>
     </form>
   </div>
 </template>
 
 <script>
+import formValidation from '@/mixins/FormValidation';
 
 export default {
   name: 'Register',
+  mixins: [formValidation],
   data() {
     return {
       user: {
@@ -59,11 +71,44 @@ export default {
         password: '',
         passwordRepeat: '',
       },
+      errors: [],
     };
   },
   methods: {
     registerUser() {
-      console.log(this.user);
+      if (this.isFormValid()) {
+        console.log('VALID');
+      }
+    },
+    isFormValid() {
+      this.errors = [];
+
+      const nickValidation = this.stringHasSize(this.user.nick, 60, 4);
+
+      if (!nickValidation.isValid) {
+        this.errors.push(nickValidation.message);
+      }
+
+      const emailValidation = this.isEmail(this.user.email);
+
+      if (!emailValidation.isValid) {
+        this.errors.push(emailValidation.message);
+      }
+
+      const areEqualPasswords =
+        this.areEqualPasswords(this.user.password, this.user.passwordRepeat);
+
+      if (areEqualPasswords.isValid) {
+        const passwordValidation = this.isPassword(this.user.password);
+
+        if (!passwordValidation.isValid) {
+          this.errors.push(passwordValidation.message);
+        }
+      } else {
+        this.errors.push(areEqualPasswords.message);
+      }
+
+      return this.errors.length === 0;
     },
   },
 };
