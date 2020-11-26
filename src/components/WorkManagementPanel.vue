@@ -1,16 +1,16 @@
 <template>
-  <div class="work-management-panel">
-    <div class="management-nav">
-      <button>
-        Option1
+  <div class="work-management">
+    <div class="nav">
+      <button class="nav__button">
+        Time
       </button>
 
-      <button>
-        Option2
+      <button class="nav__button">
+        Projects
       </button>
     </div>
 
-    <div class="management-panel">
+    <div class="panel">
 
     </div>
   </div>
@@ -28,4 +28,33 @@ export default {
 
 <style scoped lang="scss">
   @import "../scss/colors.scss";
+
+  .work-management {
+    height: 100%;
+    display: flex;
+  }
+
+  .nav {
+    width: 200px;
+
+    &__button {
+      width: 100%;
+      height: 60px;
+      border: none;
+      border-left: 4px solid #333;
+      background: #FFF;
+      text-transform: uppercase;
+      font-size: 15px;
+
+      &:hover {
+        cursor: pointer;
+        border-left: 4px solid $blue;
+        background: #EEE;
+      }
+    }
+  }
+
+  .panel {
+  }
+
 </style>
