@@ -9,7 +9,7 @@
       </router-link>
     </div>
     <div class="nav__links">
-      <router-link to="/user/panel" class="nav__link">User panel</router-link>
+      <router-link to="/management/panel" class="nav__link">Management panel</router-link>
       <router-link to="/login" class="nav__link">Login</router-link>
       <router-link to="/register" class="nav__link">Register</router-link>
     </div>
